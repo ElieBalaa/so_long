@@ -1,0 +1,2069 @@
+==38132== Memcheck, a memory error detector
+==38132== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==38132== Using Valgrind-3.22.0-bd4db67b1d-20231031 and LibVEX; rerun with -h for copyright info
+==38132== Command: ./so_long maps/medium_sized.ber
+==38132== Parent PID: 38131
+==38132== 
+--38132-- 
+--38132-- Valgrind options:
+--38132--    --tool=memcheck
+--38132--    --leak-check=full
+--38132--    --show-leak-kinds=all
+--38132--    --track-origins=yes
+--38132--    --verbose
+--38132--    --log-file=memory_test_logs/test_28_Existing_map:_medium_sized.ber_(3s_timeout).log
+--38132-- Contents of /proc/version:
+--38132--   Linux version 6.11.0-26-generic (buildd@lcy02-amd64-074) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #26~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr 17 19:20:47 UTC 2
+--38132-- 
+--38132-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--38132-- Page sizes: currently 4096, max supported 4096
+--38132-- Valgrind library directory: /usr/libexec/valgrind
+--38132-- Reading syms from /home/the-flash/42Beirut/My_github/so_long/so_long
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--38132--   Considering /usr/lib/debug/.build-id/1c/8db5f83bba514f8fd5f1fb6d7be975be1bb855.debug ..
+--38132--   .. build-id is valid
+--38132-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--38132--    object doesn't have a dynamic symbol table
+--38132-- Scheduler: using generic scheduler lock implementation.
+--38132-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==38132== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-38132-by-the-flash-on-???
+==38132== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-38132-by-the-flash-on-???
+==38132== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-38132-by-the-flash-on-???
+==38132== 
+==38132== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==38132== don't want to do, unless you know exactly what you're doing,
+==38132== or are doing some strange experiment):
+==38132==   /usr/bin/vgdb --pid=38132 ...command...
+==38132== 
+==38132== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==38132==   /path/to/gdb ./so_long
+==38132== and then give GDB the following command
+==38132==   target remote | /usr/bin/vgdb --pid=38132
+==38132== --pid is optional if only one valgrind process is running
+==38132== 
+--38132-- REDIR: 0x4028b00 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c2e1a (???)
+--38132-- REDIR: 0x40272b0 (ld-linux-x86-64.so.2:index) redirected to 0x580c2e34 (???)
+--38132-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--38132-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==38132== WARNING: new redirection conflicts with existing -- ignoring it
+--38132--     old: 0x04028b00 (strlen              ) R-> (0000.0) 0x580c2e1a ???
+--38132--     new: 0x04028b00 (strlen              ) R-> (2007.0) 0x0484f340 strlen
+--38132-- REDIR: 0x40274e0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4850460 (strcmp)
+--38132-- REDIR: 0x4026910 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853cd0 (mempcpy)
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--38132--   Considering /usr/lib/debug/.build-id/42/c84c92e6f98126b3e2230ebfdead22c235b667.debug ..
+--38132--   .. build-id is valid
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+--38132-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+--38132-- REDIR: 0x4028ca0 (ld-linux-x86-64.so.2:strncmp) redirected to 0x484fc90 (strncmp)
+--38132-- REDIR: 0x4b61050 (libc.so.6:strnlen) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b610e0 (libc.so.6:strpbrk) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5f1a0 (libc.so.6:strcmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b783b0 (libc.so.6:wcsnlen) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e290 (libc.so.6:memset) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b77b20 (libc.so.6:wcslen) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4be33c0 (libc.so.6:__memcpy_chk) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e200 (libc.so.6:memrchr) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b78350 (libc.so.6:wcsncpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5d720 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b768e0 (libc.so.6:wcschr) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5f090 (libc.so.6:index) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b61110 (libc.so.6:rindex) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b76990 (libc.so.6:wcscmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e4b0 (libc.so.6:stpncpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b84eb0 (libc.so.6:wmemchr) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60ef0 (libc.so.6:strncmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e510 (libc.so.6:strcasecmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60310 (libc.so.6:strcspn) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b778f0 (libc.so.6:wcscpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5f020 (libc.so.6:strcat) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60df0 (libc.so.6:strncasecmp_l) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5f110 (libc.so.6:strchrnul) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5d630 (libc.so.6:bcmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b602a0 (libc.so.6:strcpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e5b0 (libc.so.6:strcasecmp_l) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60cc0 (libc.so.6:strlen) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60f90 (libc.so.6:strncpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b84f30 (libc.so.6:wmemcmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4be34e0 (libc.so.6:__memmove_chk) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+==38132== WARNING: new redirection conflicts with existing -- ignoring it
+--38132--     old: 0x04c349d0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04853dd0 __memcpy_chk
+--38132--     new: 0x04c349d0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04853740 __memmove_chk
+--38132-- REDIR: 0x4b5e440 (libc.so.6:stpcpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5dfc0 (libc.so.6:memmove) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+==38132== Preferring higher priority redirection:
+--38132--     old: 0x04c34a00 (__memcpy_avx_unalign) R-> (2018.0) 0x04851580 __memcpy_avx_unaligned_erms
+--38132--     new: 0x04c34a00 (__memcpy_avx_unalign) R-> (2018.1) 0x04852d60 memmove
+--38132-- REDIR: 0x4b5d5b0 (libc.so.6:memchr) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b612e0 (libc.so.6:strspn) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b5e0e0 (libc.so.6:mempcpy) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4b60d50 (libc.so.6:strncasecmp) redirected to 0x483d1c0 (_vgnU_ifunc_wrapper)
+--38132-- REDIR: 0x4c395f0 (libc.so.6:__strrchr_avx2) redirected to 0x484ed20 (rindex)
+--38132-- REDIR: 0x4b59650 (libc.so.6:malloc) redirected to 0x48467b0 (malloc)
+--38132-- REDIR: 0x4b59d30 (libc.so.6:free) redirected to 0x4849820 (free)
+--38132-- REDIR: 0x4b5a7a0 (libc.so.6:calloc) redirected to 0x484d8a0 (calloc)
+--38132-- REDIR: 0x4c37740 (libc.so.6:__strlen_avx2) redirected to 0x484f220 (strlen)
+--38132-- REDIR: 0x4c38820 (libc.so.6:__strncmp_avx2) redirected to 0x484fab0 (strncmp)
+--38132-- REDIR: 0x4c349d0 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x4853dd0 (__memcpy_chk)
+--38132-- REDIR: 0x4c36da0 (libc.so.6:__strchrnul_avx2) redirected to 0x48537b0 (strchrnul)
+--38132-- REDIR: 0x4c34a00 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852d60 (memmove)
+--38132-- REDIR: 0x4be3f90 (libc.so.6:__strcpy_chk) redirected to 0x4853830 (__strcpy_chk)
+--38132-- REDIR: 0x4c36b60 (libc.so.6:__strchr_avx2) redirected to 0x484ef00 (index)
+--38132-- REDIR: 0x4c342a0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4852480 (bcmp)
+--38132-- REDIR: 0x4c35400 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852c50 (memset)
+--38132-- REDIR: 0x4b5a0a0 (libc.so.6:realloc) redirected to 0x484db00 (realloc)
+--38132-- REDIR: 0x4c38e80 (libc.so.6:__strncpy_avx2) redirected to 0x484f4f0 (strncpy)
+--38132-- REDIR: 0x4c36f90 (libc.so.6:__strcmp_avx2) redirected to 0x4850360 (strcmp)
+==38132== Syscall param writev(vector[0]) points to uninitialised byte(s)
+==38132==    at 0x4BD5864: writev (writev.c:26)
+==38132==    by 0x4CCAACA: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCAC4E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCBD7E: xcb_writev (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48B10B8: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B6148: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B652B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==  Address 0x4d2ce6c is 28 bytes inside a block of size 16,384 alloc'd
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A042D: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==  Uninitialised value was created by a stack allocation
+==38132==    at 0x116480: mlx_int_anti_resize_win (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+--38132-- REDIR: 0x4c35e40 (libc.so.6:__strcasecmp_avx2) redirected to 0x484fcf0 (strcasecmp)
+==38132== 
+==38132== Process terminating with default action of signal 15 (SIGTERM)
+==38132==    at 0x4BC7492: poll (poll.c:29)
+==38132==    by 0x4CCA8C9: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCAC4E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCBD7E: xcb_writev (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48B10B8: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B4AE8: _XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x488F885: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x1162CF: mlx_pixel_put (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x114117: render_ui_background (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1142B7: render_ui_stats (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113802: render_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB4C: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== HEAP SUMMARY:
+==38132==     in use at exit: 188,985 bytes in 627 blocks
+==38132==   total heap usage: 7,907 allocs, 7,280 frees, 8,000,237 bytes allocated
+==38132== 
+==38132== Searching for pointers to 627 not-freed blocks
+==38132== Checked 1,669,256 bytes
+==38132== 
+==38132== 3 bytes in 1 blocks are still reachable in loss record 1 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4B6035E: strdup (strdup.c:42)
+==38132==    by 0x48A00DA: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 8 bytes in 1 blocks are still reachable in loss record 2 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4B6035E: strdup (strdup.c:42)
+==38132==    by 0x489D0CE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x49B383F: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 8 bytes in 1 blocks are still reachable in loss record 3 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B1B16: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39F6: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 10 bytes in 1 blocks are still reachable in loss record 4 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4B6035E: strdup (strdup.c:42)
+==38132==    by 0x489D0CE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x4912033: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A0C72: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 16 bytes in 1 blocks are still reachable in loss record 5 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4CCD46D: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCE0D9: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48AF3C9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 16 bytes in 1 blocks are still reachable in loss record 6 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489756B: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 21 bytes in 1 blocks are still reachable in loss record 7 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A05D1: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 24 bytes in 1 blocks are still reachable in loss record 8 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B3021: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B34C4: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 24 bytes in 1 blocks are still reachable in loss record 9 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4B6035E: strdup (strdup.c:42)
+==38132==    by 0x489D0CE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x49B383F: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B3502: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 24 bytes in 1 blocks are still reachable in loss record 10 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B3A10: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 27 bytes in 1 blocks are still reachable in loss record 11 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x1159DD: gnl_substr (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1155E2: gnl_extract_and_update (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11571C: get_next_line (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FCC9: read_lines (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FDEB: read_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FAAB: load_and_validate_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC3B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 29 bytes in 1 blocks are still reachable in loss record 12 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489900C: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x489BFE6: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116042: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 32 bytes in 1 blocks are still reachable in loss record 13 of 171
+==38132==    at 0x484DB80: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4CD1712: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD180A: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD18CE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD1945: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48A096A: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 32 bytes in 1 blocks are still reachable in loss record 14 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4CCA257: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCAA95: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCAEEF: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCBE6D: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD185A: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD18CE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CD1945: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48A096A: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 32 bytes in 1 blocks are still reachable in loss record 15 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B3812: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 32 bytes in 1 blocks are still reachable in loss record 16 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B3812: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B3502: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 33 bytes in 1 blocks are still reachable in loss record 17 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489900C: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x489BFE6: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x11602D: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 40 bytes in 1 blocks are still reachable in loss record 18 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4899F79: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x400571E: call_init.part.0 (dl-init.c:74)
+==38132==    by 0x4005823: call_init (dl-init.c:120)
+==38132==    by 0x4005823: _dl_init (dl-init.c:121)
+==38132==    by 0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==38132==    by 0x1: ???
+==38132==    by 0x1FFEFFF7FA: ???
+==38132==    by 0x1FFEFFF804: ???
+==38132== 
+==38132== 40 bytes in 1 blocks are still reachable in loss record 19 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4899F96: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x400571E: call_init.part.0 (dl-init.c:74)
+==38132==    by 0x4005823: call_init (dl-init.c:120)
+==38132==    by 0x4005823: _dl_init (dl-init.c:121)
+==38132==    by 0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==38132==    by 0x1: ???
+==38132==    by 0x1FFEFFF7FA: ???
+==38132==    by 0x1FFEFFF804: ???
+==38132== 
+==38132== 40 bytes in 1 blocks are still reachable in loss record 20 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4899FB3: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x400571E: call_init.part.0 (dl-init.c:74)
+==38132==    by 0x4005823: call_init (dl-init.c:120)
+==38132==    by 0x4005823: _dl_init (dl-init.c:121)
+==38132==    by 0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==38132==    by 0x1: ???
+==38132==    by 0x1FFEFFF7FA: ???
+==38132==    by 0x1FFEFFF804: ???
+==38132== 
+==38132== 40 bytes in 1 blocks are still reachable in loss record 21 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48975B5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 40 bytes in 1 blocks are still reachable in loss record 22 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48AF6F9: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03E0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 48 bytes in 1 blocks are still reachable in loss record 23 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48AF350: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 48 bytes in 1 blocks are still reachable in loss record 24 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48AF365: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 48 bytes in 1 blocks are still reachable in loss record 25 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48975A4: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 48 bytes in 1 blocks are still reachable in loss record 26 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48975C5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 72 bytes in 1 blocks are still reachable in loss record 27 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A048C: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 28 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110919: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 29 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11093F: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 30 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110965: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 31 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11098B: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 32 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1109B4: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 33 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1109DD: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 34 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A06: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 35 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A2F: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 36 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A58: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 37 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A81: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 38 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110AC0: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 39 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110AE9: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 40 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110B12: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 41 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110BBA: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 42 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110BE3: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 43 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110C0C: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 44 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110CB4: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 45 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110CDD: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 46 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D06: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 47 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1110DE: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 48 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111107: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 49 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111130: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 50 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111159: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 51 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111182: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 52 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1111AB: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 53 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111B82: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 54 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BA8: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 55 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BCE: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 56 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BF4: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 57 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C30: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 58 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C56: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 59 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C7C: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 60 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111CA2: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 61 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111CDE: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 62 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D04: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 63 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D2A: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 64 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D50: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 65 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D8F: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 66 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111DB8: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 67 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111DE1: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 68 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E0A: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 69 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x114378: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 70 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143A1: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 71 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143CA: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 72 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143F3: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 73 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11441C: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 74 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x114445: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 75 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11446E: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 76 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D45: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 77 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D6E: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 78 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D97: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 79 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110DC0: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 80 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110DFF: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 81 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E28: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 82 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E51: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 88 bytes in 1 blocks are still reachable in loss record 83 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x117F5B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E7A: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 112 bytes in 1 blocks are still reachable in loss record 84 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48AF255: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 112 bytes in 1 blocks are still reachable in loss record 85 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A0751: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 128 bytes in 1 blocks are still reachable in loss record 86 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A067F: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 128 bytes in 1 blocks are still reachable in loss record 87 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489D0BE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x4912033: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A0C72: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 128 bytes in 1 blocks are still reachable in loss record 88 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489D0BE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x49B383F: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 128 bytes in 1 blocks are still reachable in loss record 89 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489D0BE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x49B383F: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B3502: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 90 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x115F8E: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 91 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110919: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 92 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11093F: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 93 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110965: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 94 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11098B: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 95 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1109B4: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 96 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1109DD: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 97 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A06: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 98 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A2F: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 99 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A58: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 100 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110A81: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 101 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110AC0: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 102 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110AE9: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 103 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110B12: load_floor_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FF7: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 104 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110BBA: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 105 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110BE3: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 106 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110C0C: load_wall_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111008: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 107 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110CB4: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 108 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110CDD: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 109 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D06: load_decoration_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111019: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 110 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1110DE: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 111 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111107: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 112 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111130: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 113 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111159: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 114 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111182: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 115 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1111AB: load_collectible_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11102A: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 116 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111B82: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 117 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BA8: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 118 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BCE: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 119 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111BF4: load_left_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E3C: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 120 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C30: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 121 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C56: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 122 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111C7C: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 123 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111CA2: load_right_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E4D: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 124 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111CDE: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 125 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D04: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 126 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D2A: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 127 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D50: load_up_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E5E: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 128 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111D8F: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 129 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111DB8: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 130 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111DE1: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 131 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E0A: load_down_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x111E6F: load_player_animation_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11103B: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 132 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x114378: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 133 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143A1: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 134 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143CA: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 135 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1143F3: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 136 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11441C: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 137 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x114445: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 138 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11446E: load_enemy_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11104C: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 139 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D45: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 140 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D6E: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 141 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110D97: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 142 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110DC0: load_corner_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11105D: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 143 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110DFF: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 144 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E28: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 145 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E51: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 136 bytes in 1 blocks are still reachable in loss record 146 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B20A6: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x117F8B: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110E7A: load_edge_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11106E: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 145 bytes in 1 blocks are still reachable in loss record 147 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A0CE1: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 152 bytes in 1 blocks are still reachable in loss record 148 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x491221E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A0C72: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 160 bytes in 1 blocks are still reachable in loss record 149 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x488E938: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A09EC: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 160 bytes in 1 blocks are still reachable in loss record 150 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x488E938: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x1161B9: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 168 bytes in 1 blocks are still reachable in loss record 151 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A0B34: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 192 bytes in 1 blocks are still reachable in loss record 152 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4897586: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A03D0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 208 bytes in 1 blocks are still reachable in loss record 153 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x49B1AC9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B39F6: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x49B8C44: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==38132==    by 0x115DE3: mlx_int_deal_shm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x116050: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 208 bytes in 1 blocks are still reachable in loss record 154 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B61B0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B652B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 297 bytes in 11 blocks are still reachable in loss record 155 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x1159DD: gnl_substr (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1155E2: gnl_extract_and_update (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11571C: get_next_line (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FD39: read_lines (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FDEB: read_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FAAB: load_and_validate_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC3B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 416 bytes in 2 blocks are still reachable in loss record 156 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B671C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B6AA4: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x118048: mlx_int_new_xshm_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1182A0: mlx_new_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117009: mlx_int_parse_xpm (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x117423: mlx_xpm_file_to_image (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110919: load_basic_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110FE6: load_images (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB34: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 512 bytes in 1 blocks are still reachable in loss record 157 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x489BE7A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x489BF1E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x11602D: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 832 bytes in 4 blocks are still reachable in loss record 158 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B61F9: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B6507: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 936 bytes in 1 blocks are still reachable in loss record 159 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x11611F: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 1,040 bytes in 5 blocks are still reachable in loss record 160 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B61B0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B6507: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 1,664 bytes in 8 blocks are still reachable in loss record 161 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B61F9: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B652B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 4,720 bytes in 1 blocks are still reachable in loss record 162 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A00C6: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 8,000 bytes in 1 blocks are still reachable in loss record 163 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x10FDBE: read_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FAAB: load_and_validate_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC3B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 8,276 bytes in 1 blocks are still reachable in loss record 164 of 171
+==38132==    at 0x484DB80: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4CCD678: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCE0D9: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48AF3C9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 10,816 bytes in 52 blocks are still reachable in loss record 165 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B4A51: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x488F885: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x1162CF: mlx_pixel_put (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1140B7: render_ui_shadow (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1142AB: render_ui_stats (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113802: render_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB4C: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 14,976 bytes in 72 blocks are still reachable in loss record 166 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B4A51: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x488F885: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x113311: put_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11392B: render_game_objects (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113A55: render_enhanced_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113798: render_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB4C: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 16,384 bytes in 1 blocks are still reachable in loss record 167 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A042D: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 18,816 bytes in 2 blocks are still reachable in loss record 168 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A07E0: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 19,760 bytes in 95 blocks are still reachable in loss record 169 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B4A51: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x488F885: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x113311: put_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x11386F: render_wall_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113A3F: render_enhanced_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113798: render_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB4C: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 21,176 bytes in 1 blocks are still reachable in loss record 170 of 171
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x4CCD396: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCE0D9: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48AF3C9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48A00FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== 44,720 bytes in 215 blocks are still reachable in loss record 171 of 171
+==38132==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48B151D: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B49AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B4A51: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x488F885: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x113311: put_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1136ED: render_floor_and_decorations (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113A01: render_enhanced_tile (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x113798: render_map (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FB4C: start_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC7B: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== LEAK SUMMARY:
+==38132==    definitely lost: 0 bytes in 0 blocks
+==38132==    indirectly lost: 0 bytes in 0 blocks
+==38132==      possibly lost: 0 bytes in 0 blocks
+==38132==    still reachable: 188,985 bytes in 627 blocks
+==38132==         suppressed: 0 bytes in 0 blocks
+==38132== 
+==38132== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==38132== 
+==38132== 1 errors in context 1 of 1:
+==38132== Syscall param writev(vector[0]) points to uninitialised byte(s)
+==38132==    at 0x4BD5864: writev (writev.c:26)
+==38132==    by 0x4CCAACA: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCAC4E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x4CCBD7E: xcb_writev (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==38132==    by 0x48B10B8: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B6148: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x48B652B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x116575: mlx_int_wait_first_expose (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1161F5: mlx_new_window (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x1108C6: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==  Address 0x4d2ce6c is 28 bytes inside a block of size 16,384 alloc'd
+==38132==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==38132==    by 0x48A042D: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==38132==    by 0x115FA6: mlx_init (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x110875: init_game (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==    by 0x10FC6C: main (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132==  Uninitialised value was created by a stack allocation
+==38132==    at 0x116480: mlx_int_anti_resize_win (in /home/the-flash/42Beirut/My_github/so_long/so_long)
+==38132== 
+==38132== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
